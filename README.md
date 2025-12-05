@@ -1,6 +1,6 @@
 # FocusGuard
 
-FocusGuard is a simple cross-platform Python utility that uses Google Gemini (Vision) to monitor your primary screen and enforce strict study focus for FAANG interview prep.
+FocusGuard is a simple cross-platform Python utility that uses Google Gemini (Vision) to monitor your primary screen and enforce strict study focus.
 
 Features
 - Periodically captures the primary monitor (every 60s by default).
