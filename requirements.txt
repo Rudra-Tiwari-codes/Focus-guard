@@ -1,0 +1,7 @@
+mss
+google-generativeai
+pillow
+opencv-python
+# Load .env files into environment variables
+python-dotenv
+# tkinter is part of the Python standard library (on some Linux distros install python3-tk)
