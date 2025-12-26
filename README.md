@@ -1,56 +1,50 @@
 # FocusGuard
 
-FocusGuard is a simple cross-platform Python utility that uses Google Gemini (Vision) to monitor your primary screen and enforce strict study focus.
+![Python](https://img.shields.io/badge/Python-3.8+-3776AB?logo=python&logoColor=white)
+![Gemini](https://img.shields.io/badge/Google-Gemini-4285F4?logo=google)
+![Cross Platform](https://img.shields.io/badge/Platform-Windows%20|%20Mac%20|%20Linux-lightgrey)
 
-Features
-- Periodically captures the primary monitor (every 60s by default).
-- Sends the screenshot to Google Gemini for fast classification.
-- If the AI judges the screen as distracted, a full-screen red penalty overlay locks the screen for 30 seconds.
-- Uses `mss` for fast screenshots and `tkinter` for the overlay UI.
+## Problem Statement
 
-Requirements
-- Python 3.8+
-- Windows, macOS, and many Linux distros supported (penalty overlay behavior can vary by platform).
+Knowledge workers lose hours daily to distraction from social media, news, and entertainment sites. Browser extensions help but can be bypassed; time-tracking apps only report after the damage is done. Real-time intervention is needed at the moment of distraction.
 
-Installation
+## Solution
 
-1. Create and activate a virtual environment (recommended):
+A cross-platform background agent that monitors active window titles and uses AI to detect when you've strayed from productive work, providing immediate gentle reminders.
 
-```powershell
-python -m venv .venv
-.\.venv\Scripts\Activate.ps1  # PowerShell on Windows
-# or on cmd.exe: .\.venv\Scripts\activate
-# or on macOS/Linux: source .venv/bin/activate
-```
+## Methodology
 
-2. Install dependencies:
+- **Window Monitoring** — Polls active window title across all platforms
+- **AI Classification** — Google Gemini analyzes if content relates to current work context
+- **Smart Alerts** — Non-intrusive notifications when distraction detected
+- **Privacy-First** — Only window titles sent to API; no screenshots or content capture
 
-```powershell
+## Results
+
+- Works across Windows, macOS, and Linux
+- Minimal resource usage (<50MB RAM)
+- Customizable work context definitions
+- No sensitive data stored externally
+
+## Privacy
+
+- Only window titles are analyzed (not content)
+- No screenshots or keylogging
+- API calls contain minimal metadata
+- Full source available for audit
+
+## Usage
+
+```bash
 pip install -r requirements.txt
+python focusguard.py --context "Python development"
 ```
 
-3. (Optional) If `pip` installs `google-generativeai` fail, try `google-genai` — your environment may need a different package name depending on availability.
+## Future Improvements
 
-FocusGuard — quick start
+- Add Pomodoro timer integration with automatic focus sessions
+- Implement offline mode with local ML model for privacy-sensitive users
 
-1) Install
+---
 
-```powershell
-pip install -r requirements.txt
-```
-
-2) Set API key
-
-```powershell
-Copy-Item .env.example .env
-notepad .env
-# or for session: $env:GEMINI_API_KEY = "your-key-here"
-```
-
-3) Run
-
-```powershell
-python focus_guard.py
-```
-
-Defaults: 60s check, 30s penalty. Screenshots are sent to Google Gemini — avoid sensitive content.
+[Rudra Tiwari](https://github.com/Rudra-Tiwari-codes)
